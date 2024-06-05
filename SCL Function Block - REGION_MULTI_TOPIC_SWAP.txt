@@ -1,0 +1,15 @@
+REGION MULTI_TOPIC_SWAP
+    IF "M100_0" THEN
+        CASE "TopicToWrite" OF
+            1:  // Statement section case 1
+                #mqttTopic := #Topic_2; // Cambiar el valor de Topic por el de Topic2
+            2:  // Statement section case 2 to 4
+                #mqttTopic := #Topic_3;
+            3:  // Statement section case 2 to 4   
+                #mqttTopic := #Topic_4;
+            ELSE  // Statement section ELSE
+                ;
+        END_CASE;
+        "M100_0" := FALSE; // Reiniciar la condición de cambio
+    END_IF;
+END_REGION
